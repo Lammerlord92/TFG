@@ -8,6 +8,7 @@
 APersonajePrueba::APersonajePrueba(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
+	numObjetos = 0;
 	// Create a CameraComponent 
 	FirstPersonCameraComponent = ObjectInitializer.CreateDefaultSubobject<UCameraComponent>(this, TEXT("FirstPersonCamera"));
 	FirstPersonCameraComponent->AttachParent = CapsuleComponent;
@@ -19,7 +20,8 @@ APersonajePrueba::APersonajePrueba(const FObjectInitializer& ObjectInitializer)
 }
 
 void APersonajePrueba::SetupPlayerInputComponent(UInputComponent* InputComponent)
-{
+{	
+
 	// set up gameplay key bindings
 	InputComponent->BindAxis("Adelante", this, &APersonajePrueba::MoveForward);
 	InputComponent->BindAxis("Derecha", this, &APersonajePrueba::MoveRight);
@@ -52,7 +54,6 @@ void APersonajePrueba::OnStopJump()
 {
 	bPressedJump = false;
 }
-
 
 // Called every frame
 void APersonajePrueba::Tick( float DeltaTime )

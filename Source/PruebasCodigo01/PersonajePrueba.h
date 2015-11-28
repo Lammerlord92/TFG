@@ -5,7 +5,7 @@
 #include "GameFramework/Character.h"
 #include "PersonajePrueba.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class PRUEBASCODIGO01_API APersonajePrueba : public ACharacter
 {
 	GENERATED_BODY()
@@ -54,4 +54,8 @@ public:
 	/** Projectile class to spawn */
 	UPROPERTY(EditDefaultsOnly, Category = Projectile)
 		TSubclassOf<class AProyectil1> ProjectileClass;
+
+	//Objeto coleccionable
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Contadores)
+		int32 numObjetos;
 };
